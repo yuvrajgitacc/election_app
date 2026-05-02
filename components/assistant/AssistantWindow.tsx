@@ -256,7 +256,7 @@ export default function AssistantWindow({
         alignItems: 'center',
         gap: '12px',
         padding: '16px 0',
-        borderBottom: '1px solid var(--border)'
+        borderBottom: '1px solid #e9ecef'
       }}>
         {!showPathSelector && (
           <button
@@ -269,9 +269,9 @@ export default function AssistantWindow({
             style={{
               display: 'flex', alignItems: 'center',
               gap: '6px', background: 'none',
-              border: '1px solid var(--border)',
+              border: '1px solid #e9ecef',
               borderRadius: '8px', padding: '6px 12px',
-              color: 'var(--text-secondary)',
+              color: '#4b5563',
               fontSize: '13px', cursor: 'pointer'
             }}
           >
@@ -282,7 +282,7 @@ export default function AssistantWindow({
         <div style={{ flex: 1 }}>
           <p style={{
             fontSize: '14px', fontWeight: 500,
-            color: 'var(--text-primary)', margin: 0
+            color: '#111118', margin: 0
           }}>
             {showPathSelector 
               ? `Elections in ${countryName}`
@@ -291,7 +291,7 @@ export default function AssistantWindow({
           </p>
           <p style={{
             fontSize: '12px',
-            color: 'var(--text-muted)',
+            color: '#6b7280',
             margin: 0
           }}>
             {countryName} · ElectionApp AI
@@ -307,9 +307,9 @@ export default function AssistantWindow({
             style={{
               display: 'flex', alignItems: 'center',
               gap: '6px', background: 'none',
-              border: '1px solid var(--border)',
+              border: '1px solid #e9ecef',
               borderRadius: '8px', padding: '6px 12px',
-              color: 'var(--text-secondary)',
+              color: '#4b5563',
               fontSize: '13px', cursor: 'pointer'
             }}
           >
@@ -501,12 +501,12 @@ export default function AssistantWindow({
               style={{
                 width: '100%',
                 height: '48px',
-                background: 'var(--surface)',
-                border: '1px solid var(--border)',
+                background: '#ffffff',
+                border: '1px solid #e9ecef',
                 borderRadius: '12px',
                 padding: '0 16px',
                 fontSize: '15px',
-                color: 'var(--text-primary)',
+                color: '#111118',
                 outline: 'none',
                 boxSizing: 'border-box'
               }}
@@ -520,8 +520,8 @@ export default function AssistantWindow({
               borderRadius: '12px',
               background: isListening 
                 ? 'var(--accent)' 
-                : 'var(--surface)',
-              border: '1px solid var(--border)',
+                : '#f8f9fa',
+              border: '1px solid #e9ecef',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -529,7 +529,7 @@ export default function AssistantWindow({
               flexShrink: 0,
               color: isListening 
                 ? 'white' 
-                : 'var(--text-secondary)'
+                : '#6b7280'
             }}
           >
             {isListening 
@@ -546,7 +546,7 @@ export default function AssistantWindow({
               borderRadius: '12px',
               background: inputValue.trim() && !isTyping
                 ? 'var(--accent)' 
-                : 'var(--surface)',
+                : '#f8f9fa',
               border: 'none',
               display: 'flex',
               alignItems: 'center',
@@ -562,7 +562,7 @@ export default function AssistantWindow({
               size={18} 
               color={inputValue.trim() && !isTyping
                 ? 'white' 
-                : 'var(--text-muted)'
+                : '#9ca3af'
               } 
             />
           </button>

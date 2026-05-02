@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer style={{
       width: '100%',
-      background: '#111118',
+      background: '#f8f9fa',
       borderTop: '1px solid var(--border)'
     }}>
       <div style={{

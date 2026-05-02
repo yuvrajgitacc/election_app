@@ -44,7 +44,7 @@ export default function GuidePage() {
     <ProtectedRoute>
       <main style={{
         minHeight: '100vh',
-        background: 'var(--background)',
+        background: '#ffffff',
         display: 'flex',
         flexDirection: 'column'
       }}>

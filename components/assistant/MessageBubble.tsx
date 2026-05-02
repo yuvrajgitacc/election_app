@@ -30,14 +30,14 @@ export default function MessageBubble({
       <div style={{
         width: '32px', height: '32px',
         borderRadius: '50%',
-        background: isUser ? 'var(--surface-2)' : 'var(--accent)',
-        border: '1px solid var(--border)',
+        background: isUser ? '#f1f3f5' : '#5b6ef5',
+        border: '1px solid #e9ecef',
         display: 'flex', alignItems: 'center',
         justifyContent: 'center',
         flexShrink: 0
       }}>
         {isUser 
-          ? <User size={14} color="var(--text-secondary)" />
+          ? <User size={14} color="#6b7280" />
           : <span style={{ fontSize: '14px', color: 'white', 
               fontWeight: 500 }}>V</span>
         }
@@ -46,16 +46,17 @@ export default function MessageBubble({
       <div 
         className="max-w-[90%] sm:max-w-[75%]"
         style={{
-        background: isUser ? 'var(--accent)' : 'var(--surface)',
-        border: isUser ? 'none' : '1px solid var(--border)',
+        background: isUser ? '#5b6ef5' : '#ffffff',
+        border: isUser ? 'none' : '1px solid #e9ecef',
         borderRadius: isUser 
           ? '16px 4px 16px 16px' 
           : '4px 16px 16px 16px',
         padding: '12px 16px',
+        boxShadow: isUser ? '0 4px 12px rgba(91, 110, 245, 0.2)' : 'none'
       }}>
         <p style={{
           fontSize: '15px',
-          color: isUser ? 'white' : 'var(--text-primary)',
+          color: isUser ? 'white' : '#111118',
           lineHeight: 1.7,
           margin: 0,
           whiteSpace: 'pre-wrap'

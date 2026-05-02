@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageSquare, X, Send, Loader2, User } from 'lucide-react'
+import { MessageSquare, X, Send, Loader2 } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
 import { useRouter } from 'next/navigation'
 
@@ -18,7 +18,7 @@ export default function GlobalChat() {
     {
       id: 'init',
       role: 'assistant',
-      content: 'Hi! I am VoterBot 🤖 Ask me anything about elections, voter registration, or voting laws around the world!'
+      content: 'Hi! I am your ElectionApp guide 🤖 Ask me anything about elections, voter registration, or voting laws around the world!'
     }
   ])
   const [input, setInput] = useState('')
@@ -41,7 +41,7 @@ export default function GlobalChat() {
       setMessages(prev => [
         ...prev,
         { id: Date.now().toString(), role: 'user', content: input },
-        { id: (Date.now() + 1).toString(), role: 'assistant', content: 'Please sign in to continue chatting with VoterBot! 🔒' }
+        { id: (Date.now() + 1).toString(), role: 'assistant', content: 'Please sign in to continue chatting with ElectionApp AI! 🔒' }
       ])
       setInput('')
       return
@@ -59,7 +59,7 @@ export default function GlobalChat() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          systemPrompt: "You are VoterBot, a highly knowledgeable global election assistant. Answer questions about voting, elections, and civic rights accurately. Keep answers concise, helpful, and friendly. If a specific country is not mentioned, give a general answer but remind them that rules vary by country.",
+          systemPrompt: "You are ElectionApp AI, a highly knowledgeable global election assistant. Answer questions about voting, elections, and civic rights accurately. Keep answers concise, helpful, and friendly. If a specific country is not mentioned, give a general answer but remind them that rules vary by country.",
           userMessage: userMessageText,
           country: 'Global',
           language: 'English'
@@ -95,8 +95,8 @@ export default function GlobalChat() {
         style={{
           position: 'fixed', bottom: '32px', right: '32px', zIndex: 100,
           width: '64px', height: '64px', borderRadius: '32px',
-          background: 'var(--accent)', color: 'white', border: 'none',
-          boxShadow: '0 8px 32px rgba(91, 110, 245, 0.4)',
+          background: '#5b6ef5', color: 'white', border: 'none',
+          boxShadow: '0 8px 32px rgba(91, 110, 245, 0.3)',
           display: isOpen ? 'none' : 'flex', alignItems: 'center', justifyContent: 'center',
           cursor: 'pointer'
         }}
@@ -113,28 +113,28 @@ export default function GlobalChat() {
             style={{
               position: 'fixed', bottom: '32px', right: '32px', zIndex: 100,
               width: '380px', height: '600px', maxHeight: '80vh',
-              background: 'var(--surface)', border: '1px solid var(--border)',
+              background: '#ffffff', border: '1px solid #e9ecef',
               borderRadius: '24px', display: 'flex', flexDirection: 'column',
-              boxShadow: '0 24px 48px rgba(0,0,0,0.5)', overflow: 'hidden'
+              boxShadow: '0 24px 48px rgba(0,0,0,0.1)', overflow: 'hidden'
             }}
           >
             {/* Header */}
             <div style={{
-              padding: '20px', background: 'var(--surface-2)', borderBottom: '1px solid var(--border)',
+              padding: '20px', background: '#f8f9fa', borderBottom: '1px solid #e9ecef',
               display: 'flex', alignItems: 'center', justifyContent: 'space-between'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <div style={{ width: '40px', height: '40px', background: 'var(--accent)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
+                <div style={{ width: '40px', height: '40px', background: '#5b6ef5', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
                   <MessageSquare size={20} />
                 </div>
                 <div>
-                  <h3 style={{ margin: 0, fontSize: '16px', color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}>VoterBot</h3>
+                  <h3 style={{ margin: 0, fontSize: '16px', color: '#111118', fontFamily: 'var(--font-display)' }}>ElectionApp AI</h3>
                   <span style={{ fontSize: '12px', color: '#22c55e', display: 'flex', alignItems: 'center', gap: '4px' }}>
                     <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#22c55e' }} /> Online
                   </span>
                 </div>
               </div>
-              <button onClick={() => setIsOpen(false)} style={{ background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer' }}>
+              <button onClick={() => setIsOpen(false)} style={{ background: 'none', border: 'none', color: '#6b7280', cursor: 'pointer' }}>
                 <X size={24} />
               </button>
             </div>
@@ -154,9 +154,9 @@ export default function GlobalChat() {
                 >
                   <div style={{
                     padding: '12px 16px',
-                    background: msg.role === 'user' ? 'var(--accent)' : 'var(--background)',
-                    border: msg.role === 'user' ? 'none' : '1px solid var(--border)',
-                    color: msg.role === 'user' ? 'white' : 'var(--text-primary)',
+                    background: msg.role === 'user' ? '#5b6ef5' : '#f1f3f5',
+                    border: msg.role === 'user' ? 'none' : '1px solid #e9ecef',
+                    color: msg.role === 'user' ? 'white' : '#111118',
                     borderRadius: msg.role === 'user' ? '16px 16px 4px 16px' : '16px 16px 16px 4px',
                     fontSize: '14px', lineHeight: 1.5
                   }}>
@@ -165,7 +165,7 @@ export default function GlobalChat() {
                   {msg.role === 'assistant' && msg.content.includes('Please sign in') && (
                     <button 
                       onClick={() => { setIsOpen(false); router.push('/login'); }}
-                      style={{ background: 'var(--surface-2)', border: '1px solid var(--border)', padding: '6px 12px', borderRadius: '8px', fontSize: '12px', color: 'var(--text-primary)', cursor: 'pointer', marginTop: '4px' }}
+                      style={{ background: '#f8f9fa', border: '1px solid #e9ecef', padding: '6px 12px', borderRadius: '8px', fontSize: '12px', color: '#111118', cursor: 'pointer', marginTop: '4px' }}
                     >
                       Go to Sign In
                     </button>
@@ -173,7 +173,7 @@ export default function GlobalChat() {
                 </motion.div>
               ))}
               {loading && (
-                <div style={{ alignSelf: 'flex-start', background: 'var(--background)', border: '1px solid var(--border)', padding: '12px 16px', borderRadius: '16px 16px 16px 4px' }}>
+                <div style={{ alignSelf: 'flex-start', background: '#f1f3f5', border: '1px solid #e9ecef', padding: '12px 16px', borderRadius: '16px 16px 16px 4px' }}>
                   <Loader2 size={16} className="animate-spin text-gray-400" />
                 </div>
               )}
@@ -181,7 +181,7 @@ export default function GlobalChat() {
             </div>
 
             {/* Input Area */}
-            <div style={{ padding: '16px', background: 'var(--surface-2)', borderTop: '1px solid var(--border)' }}>
+            <div style={{ padding: '16px', background: '#f8f9fa', borderTop: '1px solid #e9ecef' }}>
               <form 
                 onSubmit={e => { e.preventDefault(); handleSend(); }}
                 style={{ display: 'flex', gap: '8px' }}
@@ -192,15 +192,15 @@ export default function GlobalChat() {
                   onChange={e => setInput(e.target.value)}
                   placeholder="Ask a question..."
                   style={{
-                    flex: 1, background: 'var(--background)', border: '1px solid var(--border)',
-                    borderRadius: '12px', padding: '0 16px', color: 'var(--text-primary)', fontSize: '14px', outline: 'none'
+                    flex: 1, background: '#ffffff', border: '1px solid #e9ecef',
+                    borderRadius: '12px', padding: '0 16px', color: '#111118', fontSize: '14px', outline: 'none'
                   }}
                 />
                 <button
                   type="submit"
                   disabled={loading || !input.trim()}
                   style={{
-                    width: '48px', height: '48px', background: 'var(--accent)', border: 'none',
+                    width: '48px', height: '48px', background: '#5b6ef5', border: 'none',
                     borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center',
                     color: 'white', cursor: loading || !input.trim() ? 'not-allowed' : 'pointer', opacity: loading || !input.trim() ? 0.7 : 1
                   }}

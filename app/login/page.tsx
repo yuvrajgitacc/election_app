@@ -158,7 +158,7 @@ export default function LoginPage() {
   return (
     <div style={{
       minHeight: '100vh',
-      background: '#0a0a0f',
+      background: '#ffffff',
       display: 'flex',
       flexDirection: 'column'
     }}>
@@ -182,12 +182,13 @@ export default function LoginPage() {
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          background: '#f8f9fa'
         }}>
           {/* Grid background */}
           <div style={{
             position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-            backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px)',
             backgroundSize: '40px 40px',
             maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
             WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
@@ -205,8 +206,8 @@ export default function LoginPage() {
               <span style={{ color: 'white', fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '16px' }}>V</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <span style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '20px', color: '#f0f0f5' }}>Voter</span>
-              <span style={{ fontFamily: 'var(--font-body)', fontWeight: 300, fontSize: '20px', color: '#5b6ef5' }}>Lens</span>
+              <span style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '20px', color: '#111118' }}>Election</span>
+              <span style={{ fontFamily: 'var(--font-body)', fontWeight: 300, fontSize: '20px', color: '#5b6ef5' }}>App</span>
             </div>
           </Link>
 
@@ -218,7 +219,7 @@ export default function LoginPage() {
             <h1 style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(40px, 6vw, 64px)',
-              color: '#f0f0f5',
+              color: '#111118',
               lineHeight: 1.1,
               marginBottom: '20px',
               maxWidth: '600px'
@@ -229,7 +230,7 @@ export default function LoginPage() {
             </h1>
             <p style={{
               fontSize: '18px',
-              color: '#9090a8',
+              color: '#4b5563',
               maxWidth: '400px',
               lineHeight: 1.6
             }}>
@@ -243,16 +244,17 @@ export default function LoginPage() {
           <div style={{
             width: '100%',
             maxWidth: '440px',
-            background: '#111118',
-            border: '1px solid #1e1e2e',
+            background: '#ffffff',
+            border: '1px solid #e9ecef',
             borderRadius: '20px',
             padding: '40px',
-            position: 'relative'
+            position: 'relative',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.05)'
           }}>
             
             {/* Tabs */}
             <div style={{
-              display: 'flex', gap: '24px', borderBottom: '1px solid #1e1e2e',
+              display: 'flex', gap: '24px', borderBottom: '1px solid #e9ecef',
               marginBottom: '32px', position: 'relative'
             }}>
               {(['signin', 'signup'] as const).map((tab) => (
@@ -262,7 +264,7 @@ export default function LoginPage() {
                   style={{
                     padding: '0 0 12px',
                     background: 'none', border: 'none',
-                    color: activeTab === tab ? '#f0f0f5' : '#9090a8',
+                    color: activeTab === tab ? '#111118' : '#9090a8',
                     fontSize: '16px', fontWeight: 500, cursor: 'pointer',
                     position: 'relative', transition: 'color 0.2s ease'
                   }}
@@ -283,7 +285,7 @@ export default function LoginPage() {
 
             {error && (
               <div style={{
-                background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.2)',
+                background: 'rgba(239, 68, 68, 0.05)', border: '1px solid rgba(239, 68, 68, 0.1)',
                 color: '#ef4444', padding: '12px 16px', borderRadius: '10px',
                 fontSize: '13px', marginBottom: '24px'
               }}>
@@ -297,8 +299,8 @@ export default function LoginPage() {
               whileTap={{ scale: 0.98 }}
               onClick={handleGoogleAuth}
               style={{
-                width: '100%', height: '48px', background: 'white', color: 'black',
-                border: 'none', borderRadius: '12px', display: 'flex', alignItems: 'center',
+                width: '100%', height: '48px', background: '#ffffff', color: '#111118',
+                border: '1px solid #e9ecef', borderRadius: '12px', display: 'flex', alignItems: 'center',
                 justifyContent: 'center', gap: '12px', fontSize: '15px', fontWeight: 500, cursor: 'pointer',
                 marginBottom: '24px'
               }}
@@ -315,11 +317,11 @@ export default function LoginPage() {
             <div style={{
               display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px'
             }}>
-              <div style={{ flex: 1, height: '1px', background: '#1e1e2e' }} />
+              <div style={{ flex: 1, height: '1px', background: '#e9ecef' }} />
               <span style={{ fontSize: '13px', color: '#9090a8' }}>
                 or continue with {authMethod === 'email' ? 'email' : 'phone'}
               </span>
-              <div style={{ flex: 1, height: '1px', background: '#1e1e2e' }} />
+              <div style={{ flex: 1, height: '1px', background: '#e9ecef' }} />
             </div>
 
             {authMethod === 'email' ? (
@@ -328,33 +330,33 @@ export default function LoginPage() {
                   <input
                     type="text" required placeholder="Full Name" value={name} onChange={e => setName(e.target.value)}
                     style={{
-                      width: '100%', height: '48px', background: '#0a0a0f', border: '1px solid #1e1e2e',
-                      borderRadius: '12px', padding: '0 16px', color: '#f0f0f5', fontSize: '15px', outline: 'none', boxSizing: 'border-box'
+                      width: '100%', height: '48px', background: '#f8f9fa', border: '1px solid #e9ecef',
+                      borderRadius: '12px', padding: '0 16px', color: '#111118', fontSize: '15px', outline: 'none', boxSizing: 'border-box'
                     }}
                     onFocus={e => e.target.style.borderColor = '#5b6ef5'}
-                    onBlur={e => e.target.style.borderColor = '#1e1e2e'}
+                    onBlur={e => e.target.style.borderColor = '#e9ecef'}
                   />
                 )}
                 
                 <input
                   type="email" required placeholder="Email address" value={email} onChange={e => setEmail(e.target.value)}
                   style={{
-                    width: '100%', height: '48px', background: '#0a0a0f', border: '1px solid #1e1e2e',
-                    borderRadius: '12px', padding: '0 16px', color: '#f0f0f5', fontSize: '15px', outline: 'none', boxSizing: 'border-box'
+                    width: '100%', height: '48px', background: '#f8f9fa', border: '1px solid #e9ecef',
+                    borderRadius: '12px', padding: '0 16px', color: '#111118', fontSize: '15px', outline: 'none', boxSizing: 'border-box'
                   }}
                   onFocus={e => e.target.style.borderColor = '#5b6ef5'}
-                  onBlur={e => e.target.style.borderColor = '#1e1e2e'}
+                  onBlur={e => e.target.style.borderColor = '#e9ecef'}
                 />
 
                 <div style={{ position: 'relative' }}>
                   <input
                     type={showPassword ? 'text' : 'password'} required placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}
                     style={{
-                      width: '100%', height: '48px', background: '#0a0a0f', border: '1px solid #1e1e2e',
-                      borderRadius: '12px', padding: '0 48px 0 16px', color: '#f0f0f5', fontSize: '15px', outline: 'none', boxSizing: 'border-box'
+                      width: '100%', height: '48px', background: '#f8f9fa', border: '1px solid #e9ecef',
+                      borderRadius: '12px', padding: '0 48px 0 16px', color: '#111118', fontSize: '15px', outline: 'none', boxSizing: 'border-box'
                     }}
                     onFocus={e => e.target.style.borderColor = '#5b6ef5'}
-                    onBlur={e => e.target.style.borderColor = '#1e1e2e'}
+                    onBlur={e => e.target.style.borderColor = '#e9ecef'}
                   />
                   <button type="button" onClick={() => setShowPassword(!showPassword)} style={{
                     position: 'absolute', right: '16px', top: '50%', transform: 'translateY(-50%)',
@@ -370,10 +372,10 @@ export default function LoginPage() {
                       {[1, 2, 3, 4].map(level => (
                         <div key={level} style={{
                           height: '4px', flex: 1, borderRadius: '2px', transition: 'background 0.3s ease',
-                          background: password.length === 0 ? '#1e1e2e' 
+                          background: password.length === 0 ? '#e9ecef' 
                             : passStrength >= level 
                               ? (passStrength === 1 ? '#ef4444' : passStrength === 2 ? '#f97316' : passStrength === 3 ? '#eab308' : '#22c55e')
-                              : '#1e1e2e'
+                              : '#e9ecef'
                         }} />
                       ))}
                     </div>
@@ -381,11 +383,11 @@ export default function LoginPage() {
                     <input
                       type="password" required placeholder="Confirm Password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)}
                       style={{
-                        width: '100%', height: '48px', background: '#0a0a0f', border: '1px solid #1e1e2e',
-                        borderRadius: '12px', padding: '0 16px', color: '#f0f0f5', fontSize: '15px', outline: 'none', boxSizing: 'border-box'
+                        width: '100%', height: '48px', background: '#f8f9fa', border: '1px solid #e9ecef',
+                        borderRadius: '12px', padding: '0 16px', color: '#111118', fontSize: '15px', outline: 'none', boxSizing: 'border-box'
                       }}
                       onFocus={e => e.target.style.borderColor = '#5b6ef5'}
-                      onBlur={e => e.target.style.borderColor = '#1e1e2e'}
+                      onBlur={e => e.target.style.borderColor = '#e9ecef'}
                     />
                   </>
                 )}
@@ -406,10 +408,10 @@ export default function LoginPage() {
 
                 <div style={{ textAlign: 'center', marginTop: '16px' }}>
                   <button type="button" onClick={() => setAuthMethod('phone')} style={{
-                    background: 'transparent', border: '1px solid #1e1e2e', color: '#f0f0f5',
+                    background: 'transparent', border: '1px solid #e9ecef', color: '#111118',
                     padding: '10px 20px', borderRadius: '10px', fontSize: '14px', cursor: 'pointer',
                     transition: 'border-color 0.2s ease'
-                  }} onMouseOver={e => e.currentTarget.style.borderColor = '#5b6ef5'} onMouseOut={e => e.currentTarget.style.borderColor = '#1e1e2e'}>
+                  }} onMouseOver={e => e.currentTarget.style.borderColor = '#5b6ef5'} onMouseOut={e => e.currentTarget.style.borderColor = '#e9ecef'}>
                     Continue with Phone
                   </button>
                 </div>
@@ -422,18 +424,18 @@ export default function LoginPage() {
                       <input
                         type="text" value="+91" disabled
                         style={{
-                          width: '60px', height: '48px', background: '#0a0a0f', border: '1px solid #1e1e2e',
-                          borderRadius: '12px', color: '#9090a8', fontSize: '15px', textAlign: 'center', outline: 'none'
+                          width: '60px', height: '48px', background: '#f8f9fa', border: '1px solid #e9ecef',
+                          borderRadius: '12px', color: '#6b7280', fontSize: '15px', textAlign: 'center', outline: 'none'
                         }}
                       />
                       <input
                         type="tel" placeholder="Phone number" value={phone} onChange={e => setPhone(e.target.value)}
                         style={{
-                          flex: 1, height: '48px', background: '#0a0a0f', border: '1px solid #1e1e2e',
-                          borderRadius: '12px', padding: '0 16px', color: '#f0f0f5', fontSize: '15px', outline: 'none'
+                          flex: 1, height: '48px', background: '#f8f9fa', border: '1px solid #e9ecef',
+                          borderRadius: '12px', padding: '0 16px', color: '#111118', fontSize: '15px', outline: 'none'
                         }}
                         onFocus={e => e.target.style.borderColor = '#5b6ef5'}
-                        onBlur={e => e.target.style.borderColor = '#1e1e2e'}
+                        onBlur={e => e.target.style.borderColor = '#e9ecef'}
                       />
                     </div>
                     <motion.button
@@ -451,7 +453,7 @@ export default function LoginPage() {
                   </>
                 ) : (
                   <>
-                    <p style={{ color: '#9090a8', fontSize: '14px', textAlign: 'center', margin: '0 0 8px' }}>
+                    <p style={{ color: '#6b7280', fontSize: '14px', textAlign: 'center', margin: '0 0 8px' }}>
                       Enter 6-digit code sent to {phone}
                     </p>
                     <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
@@ -459,11 +461,11 @@ export default function LoginPage() {
                         <input
                           key={i} id={`otp-${i}`} type="text" maxLength={1} value={digit} onChange={e => handleOtpChange(i, e.target.value)}
                           style={{
-                            width: '40px', height: '48px', background: '#0a0a0f', border: '1px solid #1e1e2e',
-                            borderRadius: '10px', color: '#f0f0f5', fontSize: '20px', textAlign: 'center', outline: 'none'
+                            width: '40px', height: '48px', background: '#f8f9fa', border: '1px solid #e9ecef',
+                            borderRadius: '10px', color: '#111118', fontSize: '20px', textAlign: 'center', outline: 'none'
                           }}
                           onFocus={e => e.target.style.borderColor = '#5b6ef5'}
-                          onBlur={e => e.target.style.borderColor = '#1e1e2e'}
+                          onBlur={e => e.target.style.borderColor = '#e9ecef'}
                         />
                       ))}
                     </div>
@@ -485,7 +487,7 @@ export default function LoginPage() {
                 
                 <div style={{ textAlign: 'center', marginTop: '16px' }}>
                   <button type="button" onClick={() => setAuthMethod('email')} style={{
-                    background: 'none', border: 'none', color: '#9090a8', fontSize: '14px', cursor: 'pointer', textDecoration: 'underline'
+                    background: 'none', border: 'none', color: '#4b5563', fontSize: '14px', cursor: 'pointer', textDecoration: 'underline'
                   }}>
                     Back to email
                   </button>

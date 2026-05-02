@@ -68,39 +68,39 @@ export default function VerifyPage() {
 
   return (
     <ProtectedRoute>
-      <main style={{ minHeight: '100vh', background: 'var(--background)', display: 'flex', flexDirection: 'column' }}>
+      <main style={{ minHeight: '100vh', background: '#ffffff', display: 'flex', flexDirection: 'column' }}>
         <Navbar />
         <div style={{ paddingTop: '100px', flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '100px 24px 40px' }}>
           
           <div style={{ width: '100%', maxWidth: '600px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <button 
               onClick={() => router.push(`/${params.country}/guide`)}
-              style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '14px', width: 'fit-content', padding: 0 }}
+              style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'none', border: 'none', color: '#6b7280', cursor: 'pointer', fontSize: '14px', width: 'fit-content', padding: 0 }}
             >
               <ArrowLeft size={16} /> Back to Guide
             </button>
 
             <div>
-              <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '36px', color: 'var(--text-primary)', marginBottom: '8px' }}>
+              <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '36px', color: '#111118', marginBottom: '8px' }}>
                 Fact Checker
               </h1>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '15px', lineHeight: 1.6 }}>
+              <p style={{ color: '#4b5563', fontSize: '15px', lineHeight: 1.6 }}>
                 Paste any forwarded message, political claim, or news snippet about {countryName}'s elections. ElectionApp AI will instantly verify it.
               </p>
             </div>
 
-            <div style={{ background: 'var(--surface)', border: '1px solid var(--border)', borderRadius: '20px', padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ background: '#f8f9fa', border: '1px solid #e9ecef', borderRadius: '20px', padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <textarea
                 value={message}
                 onChange={e => setMessage(e.target.value)}
                 placeholder="Paste the suspicious message here..."
                 style={{
-                  width: '100%', minHeight: '160px', background: 'var(--background)', border: '1px solid var(--border)',
-                  borderRadius: '12px', padding: '16px', color: 'var(--text-primary)', fontSize: '15px', resize: 'vertical',
+                  width: '100%', minHeight: '160px', background: '#ffffff', border: '1px solid #e9ecef',
+                  borderRadius: '12px', padding: '16px', color: '#111118', fontSize: '15px', resize: 'vertical',
                   outline: 'none', fontFamily: 'var(--font-body)', lineHeight: 1.5
                 }}
-                onFocus={e => e.target.style.borderColor = 'var(--accent)'}
-                onBlur={e => e.target.style.borderColor = 'var(--border)'}
+                onFocus={e => e.target.style.borderColor = '#5b6ef5'}
+                onBlur={e => e.target.style.borderColor = '#e9ecef'}
               />
               
               <motion.button
@@ -109,7 +109,7 @@ export default function VerifyPage() {
                 onClick={handleVerify}
                 disabled={loading || !message.trim()}
                 style={{
-                  width: '100%', height: '52px', background: 'var(--accent)', color: 'white',
+                  width: '100%', height: '52px', background: '#5b6ef5', color: 'white',
                   border: 'none', borderRadius: '12px', display: 'flex', alignItems: 'center',
                   justifyContent: 'center', gap: '8px', fontSize: '16px', fontWeight: 500,
                   cursor: loading || !message.trim() ? 'not-allowed' : 'pointer', opacity: loading || !message.trim() ? 0.7 : 1
@@ -121,7 +121,7 @@ export default function VerifyPage() {
             </div>
 
             {error && (
-              <div style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.2)', color: '#ef4444', padding: '16px', borderRadius: '12px', fontSize: '15px' }}>
+              <div style={{ background: 'rgba(239, 68, 68, 0.05)', border: '1px solid rgba(239, 68, 68, 0.1)', color: '#ef4444', padding: '16px', borderRadius: '12px', fontSize: '15px' }}>
                 {error}
               </div>
             )}
@@ -131,7 +131,7 @@ export default function VerifyPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 style={{
-                  background: 'var(--surface)', border: `1px solid ${getStatusColor(result.status)}`,
+                  background: '#f8f9fa', border: `1px solid ${getStatusColor(result.status)}`,
                   borderRadius: '20px', padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px',
                   position: 'relative', overflow: 'hidden'
                 }}
@@ -145,7 +145,7 @@ export default function VerifyPage() {
                   </h3>
                 </div>
                 
-                <p style={{ color: 'var(--text-primary)', fontSize: '15px', lineHeight: 1.6, margin: 0 }}>
+                <p style={{ color: '#111118', fontSize: '15px', lineHeight: 1.6, margin: 0 }}>
                   {result.explanation}
                 </p>
               </motion.div>

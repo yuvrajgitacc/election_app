@@ -86,15 +86,15 @@ export default function QuizApp({ countryName, language }: { countryName: string
 
   if (loading) return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '60vh', gap: '24px' }}>
-      <div style={{ width: '40px', height: '40px', border: '3px solid var(--border)', borderTop: '3px solid var(--accent)', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
-      <p style={{ color: 'var(--text-secondary)' }}>Generating your quiz for {countryName}...</p>
+      <div style={{ width: '40px', height: '40px', border: '3px solid #e9ecef', borderTop: '3px solid #5b6ef5', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+      <p style={{ color: '#6b7280' }}>Generating your quiz for {countryName}...</p>
     </div>
   )
 
   if (error) return (
-    <div style={{ textAlign: 'center', padding: '40px', background: 'var(--surface)', borderRadius: '16px', maxWidth: '500px', margin: '100px auto' }}>
+    <div style={{ textAlign: 'center', padding: '40px', background: '#f8f9fa', borderRadius: '16px', maxWidth: '500px', margin: '100px auto' }}>
       <p style={{ color: '#ef4444', marginBottom: '16px' }}>{error}</p>
-      <button onClick={fetchQuestions} style={{ padding: '10px 20px', background: 'var(--accent)', color: 'white', borderRadius: '8px', border: 'none', cursor: 'pointer' }}>Retry</button>
+      <button onClick={fetchQuestions} style={{ padding: '10px 20px', background: '#5b6ef5', color: 'white', borderRadius: '8px', border: 'none', cursor: 'pointer' }}>Retry</button>
     </div>
   )
 
@@ -105,7 +105,7 @@ export default function QuizApp({ countryName, language }: { countryName: string
   return (
     <div style={{ maxWidth: '800px', width: '100%', margin: '0 auto' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
-        <span style={{ color: 'var(--text-secondary)', fontSize: '15px', fontWeight: 500, background: 'var(--surface)', padding: '6px 14px', borderRadius: '20px', border: '1px solid var(--border)' }}>
+        <span style={{ color: '#6b7280', fontSize: '15px', fontWeight: 500, background: '#f8f9fa', padding: '6px 14px', borderRadius: '20px', border: '1px solid #e9ecef' }}>
           Question {currentIdx + 1} of {questions.length}
         </span>
         <Timer duration={30} onTimeUp={handleTimeUp} resetKey={currentIdx} />
@@ -113,29 +113,30 @@ export default function QuizApp({ countryName, language }: { countryName: string
 
       <AnimatePresence mode="wait">
         <motion.div key={currentIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.3 }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 32px)', marginBottom: '32px', lineHeight: 1.4, color: 'var(--text-primary)' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 4vw, 32px)', marginBottom: '32px', lineHeight: 1.4, color: '#111118' }}>
             {question.question}
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {question.options.map((opt, i) => {
-              let bg = 'var(--surface)'
-              let borderColor = 'var(--border)'
+              let bg = '#ffffff'
+              let borderColor = '#e9ecef'
+              let textColor = '#111118'
               if (selectedOption !== null) {
                 if (i === question.correctIndex) {
-                  bg = '#10b98122'; borderColor = '#10b981'
+                  bg = '#dcfce7'; borderColor = '#10b981'
                 } else if (i === selectedOption) {
-                  bg = '#ef444422'; borderColor = '#ef4444'
+                  bg = '#fee2e2'; borderColor = '#ef4444'
                 }
               }
 
               return (
                 <motion.button
                   key={i}
-                  whileHover={selectedOption === null ? { scale: 1.01, borderColor: 'var(--accent)' } : {}}
+                  whileHover={selectedOption === null ? { scale: 1.01, borderColor: '#5b6ef5' } : {}}
                   whileTap={selectedOption === null ? { scale: 0.98 } : {}}
                   onClick={() => handleAnswer(i)}
                   disabled={selectedOption !== null}
-                  style={{ width: '100%', textAlign: 'left', padding: '16px 20px', background: bg, border: `2px solid ${borderColor}`, borderRadius: '12px', color: 'var(--text-primary)', fontSize: '16px', cursor: selectedOption === null ? 'pointer' : 'default', transition: 'all 0.2s ease' }}
+                  style={{ width: '100%', textAlign: 'left', padding: '16px 20px', background: bg, border: `2px solid ${borderColor}`, borderRadius: '12px', color: textColor, fontSize: '16px', cursor: selectedOption === null ? 'pointer' : 'default', transition: 'all 0.2s ease' }}
                 >
                   {opt}
                 </motion.button>
@@ -145,8 +146,8 @@ export default function QuizApp({ countryName, language }: { countryName: string
 
           <AnimatePresence>
             {selectedOption !== null && (
-              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} style={{ marginTop: '24px', padding: '16px', background: 'var(--surface-2)', borderRadius: '12px', borderLeft: '4px solid var(--accent)' }}>
-                <p style={{ margin: 0, fontSize: '15px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+              <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} style={{ marginTop: '24px', padding: '16px', background: '#f8f9fa', borderRadius: '12px', borderLeft: '4px solid #5b6ef5' }}>
+                <p style={{ margin: 0, fontSize: '15px', color: '#4b5563', lineHeight: 1.6 }}>
                   {selectedOption === question.correctIndex ? '✅ Correct! ' : '❌ Incorrect. '} 
                   {question.explanation}
                 </p>

@@ -1,32 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0a0a0f;
-  --color-surface: #111118;
-  --color-surface-2: #1a1a28;
-  --color-border: #1e1e2e;
+  --color-background: #ffffff;
+  --color-surface: #f8f9fa;
+  --color-surface-2: #f1f3f5;
+  --color-border: #e9ecef;
   --color-accent: #5b6ef5;
   --color-accent-orange: #f97316;
   --color-accent-green: #22c55e;
-  --color-text-primary: #f0f0f5;
-  --color-text-secondary: #9090a8;
-  --color-text-muted: #55556a;
+  --color-text-primary: #111118;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #6b7280;
 
   --font-display: 'Instrument Serif', serif;
   --font-body: 'Geist Sans', sans-serif;
 }
 
 :root {
-  --background: #0a0a0f;
-  --surface: #111118;
-  --surface-2: #1a1a28;
-  --border: #1e1e2e;
+  --background: #ffffff;
+  --surface: #f8f9fa;
+  --surface-2: #f1f3f5;
+  --border: #e9ecef;
   --accent: #5b6ef5;
   --accent-orange: #f97316;
   --accent-green: #22c55e;
-  --text-primary: #f0f0f5;
-  --text-secondary: #9090a8;
-  --text-muted: #55556a;
+  --text-primary: #111118;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
   --font-display: 'Instrument Serif', serif;
   --font-body: 'Geist Sans', sans-serif;
 }

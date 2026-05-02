@@ -63,7 +63,7 @@ export default function HeroSection() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: '#0a0a0f',
+        background: '#ffffff',
         position: 'relative',
         overflow: 'hidden',
         paddingTop: '64px',
@@ -81,15 +81,15 @@ export default function HeroSection() {
               0deg,
               transparent,
               transparent 59px,
-              rgba(255,255,255,0.03) 59px,
-              rgba(255,255,255,0.03) 60px
+              rgba(0,0,0,0.03) 59px,
+              rgba(0,0,0,0.03) 60px
             ),
             repeating-linear-gradient(
               90deg,
               transparent,
               transparent 59px,
-              rgba(255,255,255,0.03) 59px,
-              rgba(255,255,255,0.03) 60px
+              rgba(0,0,0,0.03) 59px,
+              rgba(0,0,0,0.03) 60px
             )
           `,
         }}
@@ -159,8 +159,8 @@ export default function HeroSection() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              background: '#111118',
-              border: '1px solid #1e1e2e',
+              background: '#f1f3f5',
+              border: '1px solid #e9ecef',
               borderRadius: '100px',
               padding: '6px 14px',
               marginBottom: '32px',
@@ -178,7 +178,7 @@ export default function HeroSection() {
             <span
               style={{
                 fontSize: '12px',
-                color: '#9090a8',
+                color: '#6b7280',
                 letterSpacing: '1px',
                 textTransform: 'uppercase',
               }}
@@ -200,7 +200,7 @@ export default function HeroSection() {
               display: 'block',
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(44px, 7vw, 80px)',
-              color: '#f0f0f5',
+              color: '#111118',
               lineHeight: 1.1,
               marginBottom: '4px',
             }}
@@ -252,7 +252,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           style={{
             fontSize: 'clamp(15px, 2vw, 18px)',
-            color: '#9090a8',
+            color: '#4b5563',
             maxWidth: '540px',
             lineHeight: 1.7,
             margin: '0 auto 40px',
@@ -299,7 +299,7 @@ export default function HeroSection() {
           </motion.button>
 
           <motion.button
-            whileHover={{ scale: 1.04, borderColor: '#5b6ef5', color: '#f0f0f5' }}
+            whileHover={{ scale: 1.04, borderColor: '#5b6ef5', color: '#111118' }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: 'spring', stiffness: 400, damping: 25 }}
             onClick={scrollToHowItWorks}
@@ -307,8 +307,8 @@ export default function HeroSection() {
               height: '52px',
               padding: '0 32px',
               background: 'transparent',
-              color: '#9090a8',
-              border: '1px solid #1e1e2e',
+              color: '#4b5563',
+              border: '1px solid #e9ecef',
               borderRadius: '12px',
               fontSize: '15px',
               fontWeight: 500,

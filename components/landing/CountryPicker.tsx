@@ -89,7 +89,7 @@ export default function CountryPicker() {
   };
 
   return (
-    <div ref={ref} style={{ width: '100%' }}>
+    <div ref={ref} style={{ width: '100%' }} id="country-picker">
       {/* Label */}
       <motion.p
         initial={{ opacity: 0, y: 20 }}
@@ -115,7 +115,7 @@ export default function CountryPicker() {
         style={{
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(32px, 5vw, 52px)',
-          color: '#f0f0f5',
+          color: '#111118',
           marginBottom: '12px',
           lineHeight: 1.15,
         }}
@@ -130,7 +130,7 @@ export default function CountryPicker() {
         transition={{ duration: 0.5, delay: 0.1 }}
         style={{
           fontSize: '16px',
-          color: '#9090a8',
+          color: '#4b5563',
           marginBottom: '40px',
           lineHeight: 1.7,
         }}
@@ -154,7 +154,7 @@ export default function CountryPicker() {
             transform: 'translateY(-50%)',
             width: '20px',
             height: '20px',
-            color: '#55556a',
+            color: '#6b7280',
             pointerEvents: 'none',
           }}
         />
@@ -166,13 +166,13 @@ export default function CountryPicker() {
           style={{
             width: '100%',
             height: '64px',
-            background: '#111118',
-            border: '1px solid #1e1e2e',
+            background: '#ffffff',
+            border: '1px solid #e9ecef',
             borderRadius: '16px',
             paddingLeft: '52px',
             paddingRight: '24px',
             fontSize: '16px',
-            color: '#f0f0f5',
+            color: '#111118',
             outline: 'none',
             boxSizing: 'border-box',
             transition: 'border-color 0.2s ease',
@@ -181,7 +181,7 @@ export default function CountryPicker() {
             e.currentTarget.style.borderColor = '#5b6ef5';
           }}
           onBlur={(e) => {
-            e.currentTarget.style.borderColor = '#1e1e2e';
+            e.currentTarget.style.borderColor = '#e9ecef';
           }}
         />
 
@@ -199,12 +199,12 @@ export default function CountryPicker() {
                 left: 0,
                 right: 0,
                 zIndex: 50,
-                background: '#111118',
-                border: '1px solid #1e1e2e',
+                background: '#ffffff',
+                border: '1px solid #e9ecef',
                 borderRadius: '16px',
                 maxHeight: '300px',
                 overflowY: 'auto',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
               }}
             >
               {filteredCountries.map((country) => (
@@ -212,7 +212,7 @@ export default function CountryPicker() {
                   key={country.code}
                   onClick={() => handleCountrySelect(country)}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.background = '#1a1a28';
+                    (e.currentTarget as HTMLDivElement).style.background = '#f8f9fa';
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLDivElement).style.background = 'transparent';
@@ -225,7 +225,7 @@ export default function CountryPicker() {
                     gap: '14px',
                     cursor: 'pointer',
                     transition: 'background 0.15s ease',
-                    borderBottom: '1px solid #1a1a28',
+                    borderBottom: '1px solid #f1f3f5',
                   }}
                 >
                   <span style={{ fontSize: '24px', lineHeight: 1, flexShrink: 0 }}>
@@ -234,7 +234,7 @@ export default function CountryPicker() {
                   <span
                     style={{
                       fontSize: '15px',
-                      color: '#f0f0f5',
+                      color: '#111118',
                       flex: 1,
                       fontWeight: 400,
                     }}
@@ -244,8 +244,8 @@ export default function CountryPicker() {
                   <span
                     style={{
                       fontSize: '11px',
-                      color: '#9090a8',
-                      background: '#1a1a28',
+                      color: '#6b7280',
+                      background: '#f1f3f5',
                       borderRadius: '100px',
                       padding: '3px 10px',
                       whiteSpace: 'nowrap',
@@ -269,14 +269,14 @@ export default function CountryPicker() {
                 left: 0,
                 right: 0,
                 zIndex: 50,
-                background: '#111118',
-                border: '1px solid #1e1e2e',
+                background: '#ffffff',
+                border: '1px solid #e9ecef',
                 borderRadius: '16px',
                 padding: '24px',
                 textAlign: 'center',
               }}
             >
-              <p style={{ fontSize: '14px', color: '#55556a' }}>
+              <p style={{ fontSize: '14px', color: '#6b7280' }}>
                 No countries found for "{searchQuery}"
               </p>
             </motion.div>
@@ -295,7 +295,7 @@ export default function CountryPicker() {
           style={{
             display: 'block',
             fontSize: '13px',
-            color: '#9090a8',
+            color: '#4b5563',
             marginBottom: '8px',
           }}
         >
@@ -307,16 +307,16 @@ export default function CountryPicker() {
           style={{
             width: '100%',
             height: '48px',
-            background: '#111118',
-            border: '1px solid #1e1e2e',
+            background: '#ffffff',
+            border: '1px solid #e9ecef',
             borderRadius: '12px',
             padding: '0 16px',
-            color: '#f0f0f5',
+            color: '#111118',
             fontSize: '14px',
             outline: 'none',
             cursor: 'pointer',
             appearance: 'none',
-            backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%239090a8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>')`,
+            backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%234b5563" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>')`,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'right 16px center',
             paddingRight: '40px',
@@ -326,7 +326,7 @@ export default function CountryPicker() {
             <option
               key={lang.code}
               value={lang.name}
-              style={{ background: '#111118' }}
+              style={{ background: '#ffffff' }}
             >
               {lang.name}
             </option>
@@ -344,7 +344,7 @@ export default function CountryPicker() {
         <p
           style={{
             fontSize: '12px',
-            color: '#55556a',
+            color: '#6b7280',
             marginBottom: '12px',
           }}
         >
@@ -367,11 +367,11 @@ export default function CountryPicker() {
                 border:
                   activeRegion === region
                     ? '1px solid #5b6ef5'
-                    : '1px solid #1e1e2e',
+                    : '1px solid #e9ecef',
                 background:
-                  activeRegion === region ? '#1a1a28' : '#111118',
+                  activeRegion === region ? '#f1f3f5' : '#ffffff',
                 color:
-                  activeRegion === region ? '#5b6ef5' : '#9090a8',
+                  activeRegion === region ? '#5b6ef5' : '#4b5563',
                 fontSize: '13px',
                 cursor: 'pointer',
                 whiteSpace: 'nowrap',

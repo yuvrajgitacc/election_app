@@ -111,7 +111,7 @@ export default function PathSelector({
         <h2 style={{
           fontFamily: 'var(--font-display)',
           fontSize: 'clamp(22px, 4vw, 32px)',
-          color: '#f0f0f5',
+          color: '#111118',
           marginBottom: '8px',
           lineHeight: 1.2
         }}>
@@ -119,7 +119,7 @@ export default function PathSelector({
         </h2>
         <p style={{
           fontSize: '15px',
-          color: '#9090a8',
+          color: '#6b7280',
           lineHeight: 1.6
         }}>
           What would you like to understand?
@@ -154,12 +154,13 @@ export default function PathSelector({
               alignItems: 'center',
               gap: '14px',
               padding: '14px 18px',
-              background: '#111118',
-              border: '1px solid #1e1e2e',
+              background: '#ffffff',
+              border: '1px solid #e9ecef',
               borderRadius: '14px',
               cursor: 'pointer',
               textAlign: 'left',
               width: '100%',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.02)'
             }}
           >
             {/* Icon box */}
@@ -168,7 +169,7 @@ export default function PathSelector({
               height: '36px',
               minWidth: '36px',
               borderRadius: '10px',
-              background: '#1a1a28',
+              background: '#f1f3f5',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -187,14 +188,14 @@ export default function PathSelector({
               <span style={{
                 fontSize: '15px',
                 fontWeight: 500,
-                color: '#f0f0f5',
+                color: '#111118',
                 lineHeight: 1.3
               }}>
                 {path.title}
               </span>
               <span style={{
                 fontSize: '13px',
-                color: '#9090a8',
+                color: '#6b7280',
                 lineHeight: 1.4
               }}>
                 {path.description}
@@ -204,7 +205,7 @@ export default function PathSelector({
             {/* Arrow */}
             <ArrowRight
               size={15}
-              color="#55556a"
+              color="#9ca3af"
               style={{ flexShrink: 0 }}
             />
           </motion.button>

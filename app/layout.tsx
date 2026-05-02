@@ -50,12 +50,12 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#0a0a0f" />
+        <meta name="theme-color" content="#ffffff" />
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body
         className={`${instrumentSerif.variable} ${geistSans.variable} antialiased min-h-screen flex flex-col`}
-        style={{ background: '#0a0a0f' }}
+        style={{ background: '#ffffff' }}
       >
         <LazyMotion features={domAnimation}>
           <main 
